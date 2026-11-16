@@ -1,0 +1,160 @@
+/* ===== 1. Colors & base (CSS variables) ===== */
+:root {
+  --primary: #1e6091;
+  --dark: #222;
+  --light: #f4f6f8;
+  --white: #fff;
+  --accent: #e07a1f;
+}
+* { box-sizing: border-box; }               /* Box model: width includes padding+border */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif; /* Fonts */
+  color: var(--dark);
+  background: var(--light);
+  line-height: 1.6;
+}
+a { color: var(--primary); text-decoration: none; }
+img { max-width: 100%; display: block; }
+h1, h2, h3 { margin: 0 0 10px; }
+
+/* ===== 2. Navigation (list styled as a menu) + sticky positioning ===== */
+header {
+  background: var(--primary);
+  position: sticky;                          /* Positioning */
+  top: 0;
+  z-index: 10;
+}
+.nav {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;                             /* Flexbox layout */
+  justify-content: space-between;
+  align-items: center;
+}
+.logo { color: var(--white); font-size: 22px; font-weight: bold; }
+.nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+.nav li a {
+  display: block;
+  padding: 16px 14px;
+  color: var(--white);
+  transition: background 0.3s;               /* Transition */
+}
+.nav li a:hover, .nav li a.active { background: rgba(0,0,0,0.25); }
+
+/* ===== 3. Layout helpers ===== */
+.container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+section { margin-bottom: 40px; }
+
+/* ===== 4. Hero (background + canvas) ===== */
+.hero {
+  position: relative;
+  height: 320px;
+  background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+              url("https://picsum.photos/id/1067/1400/500") center/cover no-repeat;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero h1, .hero p, .hero .btn { position: relative; }  /* keep text above canvas */
+.hero h1 { font-size: 36px; animation: fadeIn 1.2s ease; }
+
+/* ===== 5. Buttons ===== */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--white);
+  padding: 10px 22px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+.btn:hover { transform: scale(1.07); }       /* Transform */
+
+/* ===== 6. Listing cards (grid) ===== */
+.grid {
+  display: grid;                             /* Grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: var(--white);
+  border: 1px solid #ddd;                    /* Borders */
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover { transform: translateY(-6px); box-shadow: 0 8px 18px rgba(0,0,0,.15); }
+.card img { height: 180px; width: 100%; object-fit: cover; }
+.card-body { padding: 14px; }               /* Padding */
+.card h3 { font-size: 18px; }
+.price { color: var(--primary); font-weight: bold; font-size: 20px; }
+.badge {
+  position: absolute;                        /* Absolute positioning inside .card */
+  top: 10px; left: 10px;
+  background: var(--accent);
+  color: var(--white);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+.meta { list-style: none; padding: 0; margin: 8px 0; display: flex; gap: 14px; font-size: 14px; color: #555; }
+
+/* ===== 7. Float demo (text wrapping around an image) ===== */
+.about img { float: left; width: 260px; margin: 0 20px 10px 0; border-radius: 8px; }
+.about::after { content: ""; display: block; clear: both; }  /* clear float */
+
+/* ===== 8. Tables ===== */
+table { width: 100%; border-collapse: collapse; background: var(--white); }
+th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+th { background: var(--primary); color: var(--white); }
+tr:nth-child(even) { background: #f0f4f8; }
+
+/* ===== 9. Forms ===== */
+form {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 420px;
+  margin: auto;
+}
+label { display: block; margin: 12px 0 4px; font-weight: bold; }
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 15px;
+}
+input:focus, textarea:focus { outline: 2px solid var(--primary); }
+form .btn { margin-top: 16px; }
+
+/* ===== 10. Detail page ===== */
+.detail-img { border-radius: 10px; height: 350px; width: 100%; object-fit: cover; }
+.amenities { columns: 2; }                  /* list in 2 columns */
+video { width: 100%; max-width: 600px; border-radius: 8px; }
+
+/* ===== 11. Footer ===== */
+footer { background: var(--dark); color: #ccc; text-align: center; padding: 20px; }
+
+/* ===== 12. Animation (keyframes) ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.card { animation: fadeIn 0.8s ease; }
+
+/* ===== 13. Responsive (modern CSS) ===== */
+@media (max-width: 600px) {
+  .nav { flex-direction: column; }
+  .about img { float: none; width: 100%; }
+  .amenities { columns: 1; }
+}

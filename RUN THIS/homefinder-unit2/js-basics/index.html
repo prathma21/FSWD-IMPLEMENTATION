@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Basics | HomeFinder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <span class="logo">HomeFinder (Plain JS)</span>
+      <ul><li><a href="#">Saved: <span id="savedCount">0</span></a></li></ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Search Properties</h2>
+
+    <div class="filters">
+      <input type="text" id="search" placeholder="Search by title or city">
+      <select id="type">
+        <option value="All">All</option>
+        <option value="Sale">For Sale</option>
+        <option value="Rent">For Rent</option>
+      </select>
+      <input type="number" id="maxPrice" placeholder="Max price">
+    </div>
+
+    <p id="count"></p>
+    <div class="grid" id="list"></div>
+  </main>
+
+  <footer><p>Unit 2 - Part A: JavaScript + DOM</p></footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | HomeFinder</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="logo" href="index.html">HomeFinder</a>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="listings.html" >Listings</a></li>
+        <li><a href="contact.html" >Contact</a></li>
+        <li><a href="login.html" >Login</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="hero">
+    <canvas id="heroCanvas"></canvas>
+    <h1>Find Your Dream Home</h1>
+    <p>Browse houses, flats and villas for sale and rent.</p>
+    <a class="btn" href="listings.html">Browse Listings</a>
+  </div>
+
+  <main class="container">
+    <section>
+      <h2>Featured Properties</h2>
+      <div class="grid">
+        <article class="card">
+          <span class="badge">For Sale</span>
+          <img src="https://picsum.photos/id/1039/600/400" alt="Modern 3BHK Apartment">
+          <div class="card-body">
+            <h3>Modern 3BHK Apartment</h3>
+            <p class="price">₹ 85,00,000</p>
+            <p>Whitefield, Bengaluru</p>
+            <ul class="meta">
+              <li>3 Beds</li>
+              <li>2 Baths</li>
+              <li>1450 sq ft</li>
+            </ul>
+            <a class="btn" href="detail.html">View Details</a>
+          </div>
+        </article>
+        <article class="card">
+          <span class="badge">For Sale</span>
+          <img src="https://picsum.photos/id/1068/600/400" alt="Cozy Family House">
+          <div class="card-body">
+            <h3>Cozy Family House</h3>
+            <p class="price">₹ 1,20,00,000</p>
+            <p>Banjara Hills, Hyderabad</p>
+            <ul class="meta">
+              <li>4 Beds</li>
+              <li>3 Baths</li>
+              <li>2200 sq ft</li>
+            </ul>
+            <a class="btn" href="detail.html">View Details</a>
+          </div>
+        </article>
+        <article class="card">
+          <span class="badge">For Rent</span>
+          <img src="https://picsum.photos/id/1062/600/400" alt="Studio near Metro">
+          <div class="card-body">
+            <h3>Studio near Metro</h3>
+            <p class="price">₹ 18,000 / month</p>
+            <p>Andheri, Mumbai</p>
+            <ul class="meta">
+              <li>1 Beds</li>
+              <li>1 Baths</li>
+              <li>520 sq ft</li>
+            </ul>
+            <a class="btn" href="detail.html">View Details</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="about">
+      <h2>About Us</h2>
+      <img src="https://picsum.photos/id/1048/400/300" alt="Office building">
+      <p>HomeFinder connects buyers, sellers and renters in one simple place. Every listing includes clear pricing, photos and details so you can decide with confidence.</p>
+      <p>This page uses <strong>float</strong> to wrap the text around the image. Learn more about layouts on
+        <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS" target="_blank" rel="noopener">MDN CSS Guide</a>.</p>
+    </section>
+  </main>
+
+  <script src="js/hero-canvas.js"></script>
+  <footer>
+    <p>&copy; 2026 HomeFinder. Built for Full Stack Development coursework.</p>
+  </footer>
+</body>
+</html>

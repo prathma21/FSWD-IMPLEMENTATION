@@ -1,0 +1,64 @@
+### Works in IntelliJ (Ultimate/HTTP Client) and VS Code (REST Client extension).
+### You can also paste the URLs into a browser (GET only) or use Postman.
+
+### 1. Skeleton check
+GET http://localhost:8080/api/hello
+
+### 2. All properties
+GET http://localhost:8080/api/properties
+
+### 3. Filters (same as React search box, dropdown, max price)
+GET http://localhost:8080/api/properties?status=For Rent&maxPrice=30000
+###
+GET http://localhost:8080/api/properties?search=pune
+
+### 4. One property
+GET http://localhost:8080/api/properties/1
+
+### 5. Not found -> 404 with JSON error
+GET http://localhost:8080/api/properties/999
+
+### 6. Create -> 201
+POST http://localhost:8080/api/properties
+Content-Type: application/json
+
+{
+  "title": "Test Loft",
+  "price": 5500000,
+  "location": "Pune",
+  "bedrooms": 2,
+  "bathrooms": 1,
+  "area": 900,
+  "type": "Apartment",
+  "status": "For Sale",
+  "imageUrl": "https://picsum.photos/id/1040/600/400",
+  "description": "Created through the API",
+  "agentId": 1
+}
+
+### 7. Business rule broken (price 0) -> 400
+POST http://localhost:8080/api/properties
+Content-Type: application/json
+
+{ "title": "Bad", "price": 0, "status": "For Sale" }
+
+### 8. Update (change the id to the one you created)
+PUT http://localhost:8080/api/properties/7
+Content-Type: application/json
+
+{
+  "title": "Test Loft (updated)",
+  "price": 5000000,
+  "location": "Pune",
+  "bedrooms": 2,
+  "bathrooms": 1,
+  "area": 900,
+  "type": "Apartment",
+  "status": "For Sale",
+  "imageUrl": "https://picsum.photos/id/1040/600/400",
+  "description": "Updated through the API",
+  "agentId": 1
+}
+
+### 9. Delete -> 204   (deleting id 1 gives 409 because it has inquiries)
+DELETE http://localhost:8080/api/properties/7
